@@ -1,0 +1,16 @@
+# Flask Todo App
+
+A simple Todo application built with Flask, SQLite, HTML, and CSS.
+
+Features:
+- Add tasks
+- Mark tasks as completed
+- Delete tasks
+- Store tasks using SQLite
+
+Technologies:
+- Python
+- Flask
+- SQLAlchemy
+- HTML/CSS
+- SQLite

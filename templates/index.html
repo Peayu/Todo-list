@@ -1,0 +1,55 @@
+{%extends 'base.html' %}
+
+{% block head %} 
+{% endblock %}
+
+{% block body %}
+<section id="se">
+
+    <form method="POST", id="options">
+        <!-- <input name = "username"> -->
+        <label>Title</label>
+        <input name = "title">
+        
+        <label>Desc</label>
+        <input name = "desc">
+        <button>Submit</button>
+    </form>
+</section>
+
+<section id="maintable">
+    
+    <table >
+        <tr>
+            <th>Sr.No.</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date created</th>
+            <th>Actions</th>
+        </tr>
+        
+        {% for todo in allTodo %}
+        <tr class="{% if todo.completed %}completed{% endif %}">
+            <td>{{todo.sno}}</td>
+            <td>{{todo.title}}</td>
+            <td>{{todo.desc}}</td>
+            <td>{{todo.date_created}}</td>
+            <td>
+    {% if todo.completed %}
+        ✅ Completed
+    {% else %}
+        <a href="/complete/{{todo.sno}}">
+            <button class="complete-btn">
+                Complete
+            </button>
+        </a>
+    {% endif %}
+</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</section>
+<!-- <h1>hello {{name}} </h1>     -->
+
+{% endblock %}

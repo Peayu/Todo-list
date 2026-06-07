@@ -1,0 +1,153 @@
+body {
+    background-color: cadetblue;
+    margin: 0;
+    padding: 30px;
+    font-family: sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* FORM SECTION */
+
+#se {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#options {
+    background-color: white;
+    width: 350px;
+
+    padding: 25px;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+#options label {
+    font-weight: bold;
+    text-align: left;
+}
+
+#options input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+}
+
+#options input:focus {
+    border-color: cadetblue;
+}
+
+/* BUTTONS */
+
+
+#options button:last-child {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+
+
+#options button:last-child {
+    background-color: #28a745;
+    color: white;
+}
+
+
+#options button:last-child:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* TABLE CONTAINER */
+
+#maintable {
+    width: 80%;
+    background-color: bisque;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 16px;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid white;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* HOVER EFFECT */
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    #maintable {
+        width: 95%;
+    }
+
+    #options {
+        width: 90%;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+.complete-btn {
+    background-color: green;
+    color: white;
+
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}

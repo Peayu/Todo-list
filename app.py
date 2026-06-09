@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
 
@@ -12,8 +14,12 @@ class Todo(db.Model):
     desc = db.Column(db.String(2000), nullable = False)
     date_created = db.Column(db.DateTime, default= datetime.utcnow)
     completed = db.Column(db.Boolean, default =False)
+
+
     def __repr__(self) -> str:
         return f"{self.sno} - {self.title}"
+    
+
 with app.app_context():
     db.create_all()
 
@@ -40,6 +46,16 @@ def complete(sno):
 
     db.session.commit()
 
+    return redirect('/')
+
+@app.route('/deletee/<int:sno>')
+def deletee(sno):
+
+    todo = Todo.query.filter_by(sno=sno).first()
+
+
+    db.session.delete(todo)
+    db.session.commit()
     return redirect('/')
 
 if __name__ == "__main__":

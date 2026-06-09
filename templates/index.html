@@ -25,7 +25,8 @@
             <th>Title</th>
             <th>Description</th>
             <th>Date created</th>
-            <th>Actions</th>
+            <th>Complete</th>
+            <th>Delete</th>
         </tr>
         
         {% for todo in allTodo %}
@@ -43,8 +44,15 @@
                 Complete
             </button>
         </a>
-    {% endif %}
-</td>
+        {% endif %}
+    </td>
+
+        <td><a href="/deletee/{{todo.sno}}">
+            <button class="delete-btn">
+                Delete
+            </button>
+        </a>
+        </td>
         </tr>
         {% endfor %}
     </table>

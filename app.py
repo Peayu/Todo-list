@@ -23,19 +23,24 @@ class Todo(db.Model):
 with app.app_context():
     db.create_all()
 
-@app.route("/", methods=["GET","POST"])
+@app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method == "POST" :
+
+    if request.method == "POST":
         title = request.form["title"]
         desc = request.form["desc"]
-        if title & desc:
-            todo = Todo(title=title, desc =desc)
+
+        if title.strip() and desc.strip():
+            todo = Todo(title=title, desc=desc)
+
             db.session.add(todo)
             db.session.commit()
 
-        allTodo = Todo.query.order_by(Todo.date_created.desc()).all()
+        return redirect("/")
 
-        return render_template('index.html', allTodo = allTodo)
+    allTodo = Todo.query.order_by(Todo.date_created.desc()).all()
+
+    return render_template("index.html", allTodo=allTodo)
 
 
 @app.route('/complete/<int:sno>')

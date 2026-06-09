@@ -25,12 +25,13 @@ with app.app_context():
 
 @app.route("/", methods=["GET","POST"])
 def index():
-    if request.method == "POST":
+    if request.method == "POST" :
         title = request.form["title"]
         desc = request.form["desc"]
-        todo = Todo(title=title, desc =desc)
-        db.session.add(todo)
-        db.session.commit()
+        if title & desc:
+            todo = Todo(title=title, desc =desc)
+            db.session.add(todo)
+            db.session.commit()
 
     allTodo = Todo.query.order_by(Todo.date_created.desc()).all()
 

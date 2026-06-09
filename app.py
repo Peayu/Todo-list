@@ -33,9 +33,9 @@ def index():
             db.session.add(todo)
             db.session.commit()
 
-    allTodo = Todo.query.order_by(Todo.date_created.desc()).all()
+        allTodo = Todo.query.order_by(Todo.date_created.desc()).all()
 
-    return render_template('index.html', allTodo = allTodo)
+        return render_template('index.html', allTodo = allTodo)
 
 
 @app.route('/complete/<int:sno>')
